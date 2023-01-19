@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventory/src/screens/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,37 +8,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My',
+      title: 'Flutter View',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Scaffold useses"),
-        elevation: 5,
-        shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.elliptical(50, 10))),
-        actions: <Widget>[
-          IconButton(onPressed: (){}, icon: Icon(Icons.apple)),
-          IconButton(onPressed: (){}, icon: Icon(Icons.android))
-        ],
-      ),
-      body: Center(),
-      backgroundColor: Colors.white,
+      initialRoute: LoginPage.id,
+      routes: {
+        LoginPage.id : (context) => LoginPage(),
+      }
     );
   }
 }
